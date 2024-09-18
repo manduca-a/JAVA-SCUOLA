@@ -1,0 +1,98 @@
+import java.io.*; // importo il pacchetto per l'Input Output
+
+import javax.swing.JOptionPane;
+public class GestioneTeatro {
+
+    public static void main(String[] s) {
+
+	// creo un oggetto per leggere dati dalla finestra di console
+        BufferedReader console = new BufferedReader(
+       	    new InputStreamReader(System.in));
+
+        String persone = new String ();
+        persone = JOptionPane.showInputDialog("Quanti sono gli attori ingaggiati?");
+        int e = Integer.parseInt(persone);
+        String attori[][] = new String[e][3];
+        for (int i=0; i<e; i++)
+        {
+        	
+ 
+        		
+        
+	String nomeAttore = JOptionPane.showInputDialog("Digita il nome dell'attore");
+	// leggo la stringa:
+	try {
+	    nome(console.readLine());
+	}
+        catch (IOException e1) {
+            JOptionPane.showMessageDialog(null, "Errore di input");
+            System.exit(1);
+	}
+	String meseIngaggio = JOptionPane.showInputDialog("Mese dell'ingaggio?");
+    boolean datoErrato = true;
+int mese;
+do {
+        try
+        {
+            meseIngaggio = console.readLine();
+            // converto la stringa in intero:
+            mese = Integer.parseInt(meseIngaggio);
+            datoErrato = false;
+        }
+        catch (NumberFormatException e1)
+        {
+            System.out.println("devi darmi un intero! Riprova: ");
+        }
+       catch (IOException e1) {
+    	   JOptionPane.showMessageDialog(null, "Errore di input");
+            System.exit(1);
+        }
+    }
+    while (datoErrato);
+
+String giornoIngaggio = JOptionPane.showInputDialog("Giorno dell'ingaggio?");
+        datoErrato = true;
+        int giorno;
+	do {
+            try
+            {
+                giornoIngaggio= console.readLine();
+                // converto la stringa in intero:
+                giorno = Integer.parseInt(giornoIngaggio);
+                datoErrato = false;
+            }
+            catch (NumberFormatException e1)
+            {
+                System.out.println("devi darmi un intero! Riprova: ");
+            }
+           catch (IOException e1) {
+        	   JOptionPane.showMessageDialog(null, "Errore di input");
+                System.exit(1);
+            }
+        }
+        while (datoErrato);
+        		
+        	attori[e][0]=nomeAttore;
+        	attori[e][1]=meseIngaggio;
+        	attori[e][2]=giornoIngaggio;
+        	e++;
+        		}
+	/// Stampo il programma del teatro: 
+	JOptionPane.showMessageDialog(null, "Ora ti mostrerò gli attori", "********** Programma del teatro: ***********", e);
+	for(int i = 0; i<=e; i++)
+	{
+	JOptionPane.showMessageDialog(null, attori[e][0] + attori[e][1] + attori[e][2]);
+	e++;
+	}
+    }
+
+	private static void mese(int parseInt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void nome(String readLine) {
+		// TODO Auto-generated method stub
+		
+	}
+}
